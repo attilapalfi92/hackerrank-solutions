@@ -111,6 +111,57 @@ public class Week1 {
 
         return (int) Math.abs(diag1 - diag2);
     }
+
+
+    // 8
+    public static List<Integer> countingSort(List<Integer> arr) {
+        int[] frequencyArray = new int[100];
+
+        for (int i = 0; i < arr.size(); i++) {
+            Integer value = arr.get(i);
+            frequencyArray[value] = frequencyArray[value] + 1;
+        }
+
+        return Arrays.stream(frequencyArray).boxed().collect(Collectors.toList());
+    }
+
+
+    // 9
+    public static String pangrams(String input) {
+        Set<Character> characters = new HashSet<>();
+
+        for (char c : input.toLowerCase().toCharArray()) {
+            if (c != ' ') {
+                characters.add(c);
+            }
+        }
+
+        return characters.size() == 26 ? "pangram" : "not pangram";
+    }
+
+
+
+    // 10
+    public static String twoArrays(int k, List<Integer> A, List<Integer> B) {
+        ArrayList<Integer> aSorted = new ArrayList<>(A);
+        Collections.sort(aSorted);
+        ArrayList<Integer> bSorted = new ArrayList<>(B);
+        Collections.sort(bSorted);
+
+        for (int i = 0; i < A.size(); i++) {
+            if (aSorted.get(0) + bSorted.get(bSorted.size() - 1) >= k) {
+                aSorted.remove(0);
+                bSorted.remove(bSorted.size() - 1);
+            } else if (aSorted.get(aSorted.size() - 1) + bSorted.get(0) >= k) {
+                aSorted.remove(aSorted.size() - 1);
+                bSorted.remove(0);
+            } else {
+                return "NO";
+            }
+        }
+
+        return "YES";
+    }
 }
 
 
