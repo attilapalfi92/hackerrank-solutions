@@ -1,4 +1,4 @@
-package com.attilapalfi.hackerrank;
+package com.attilapalfi.hackerrank.week1;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -140,12 +140,11 @@ public class Week1 {
     }
 
 
-
     // 10
     public static String twoArrays(int k, List<Integer> A, List<Integer> B) {
-        ArrayList<Integer> aSorted = new ArrayList<>(A);
+        List<Integer> aSorted = new ArrayList<>(A);
         Collections.sort(aSorted);
-        ArrayList<Integer> bSorted = new ArrayList<>(B);
+        List<Integer> bSorted = new ArrayList<>(B);
         Collections.sort(bSorted);
 
         for (int i = 0; i < A.size(); i++) {
@@ -161,6 +160,40 @@ public class Week1 {
         }
 
         return "YES";
+    }
+
+
+    // 11
+    public static int birthday(List<Integer> chocolateBar, int day, int month) {
+        int count = month;
+        int sum = day;
+        int solutions = 0;
+
+        for (int i = 0; i < chocolateBar.size() - count + 1; i++) {
+            int counter = 0;
+            for (int j = 0; j < count; j++) {
+                counter += chocolateBar.get(i + j);
+            }
+            if (counter == sum) {
+                solutions++;
+            }
+        }
+
+        return solutions;
+    }
+
+
+    // 12
+    public static String stringsXOR(String s, String t) {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == t.charAt(i))
+                res.append("0");
+            else
+                res.append("1");
+        }
+
+        return res.toString();
     }
 }
 
