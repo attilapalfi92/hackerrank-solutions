@@ -183,7 +183,7 @@ public class Week1 {
     }
 
 
-    // 12
+    // 12 stupid debugging of existing code
     public static String stringsXOR(String s, String t) {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
