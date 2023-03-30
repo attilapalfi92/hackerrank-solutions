@@ -1,5 +1,6 @@
 package com.attilapalfi.hackerrank;
 
+import com.attilapalfi.hackerrank.datastructures.arrays.ArrayManipulation;
 import com.attilapalfi.hackerrank.week1.Test1;
 import com.attilapalfi.hackerrank.week2.Week2;
 
@@ -20,7 +21,12 @@ public class Main {
 //        var result = Test1.flippingMatrix(matrix);
 //        System.out.println(result);
 
-        var result = Week2.pageCount(6, 5);
+        var result = ArrayManipulation.arrayManipulation(10, List.of(
+                List.of(2, 6, 8),
+                List.of(3, 5, 7),
+                List.of(1, 8, 1),
+                List.of(5, 9, 15)
+        ));
         System.out.println(result);
     }
 }
