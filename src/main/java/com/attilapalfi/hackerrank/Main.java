@@ -1,20 +1,35 @@
 package com.attilapalfi.hackerrank;
 
-import com.attilapalfi.hackerrank.datastructures.stacks.BalancedBrackets;
+import com.attilapalfi.hackerrank.datastructures.queues.CastleOnTheGrid;
 
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> testData = Arrays.asList(BalancedBrackets.TEST_DATA);
-        List<String> results = Arrays.asList(BalancedBrackets.TEST_RESULTS);
-        for (int i = 0; i < testData.size(); i++) {
-            String balanced = BalancedBrackets.isBalanced(testData.get(i));
-            if (!balanced.equals(results.get(i))) {
-                System.out.println("Failed at " + i + ". Test: " + testData.get(i));
-            }
-        }
+
+        String[] rows = CastleOnTheGrid.TEST_DATA.split("\n");
+        List<String> rowList = Arrays.asList(rows);
+        int result = CastleOnTheGrid.minimumMoves(rowList, 34, 28, 16, 8);
+        System.out.println(result);
+
+
+
+        // * ...
+        // * .X.
+        // * ...
+//        int result = CastleOnTheGrid.minimumMoves(List.of(".X.", ".X.", "..."), 0, 0, 0, 2);
+//        System.out.println(result);
+
+
+//        List<String> testData = Arrays.asList(BalancedBrackets.TEST_DATA);
+//        List<String> results = Arrays.asList(BalancedBrackets.TEST_RESULTS);
+//        for (int i = 0; i < testData.size(); i++) {
+//            String balanced = BalancedBrackets.isBalanced(testData.get(i));
+//            if (!balanced.equals(results.get(i))) {
+//                System.out.println("Failed at " + i + ". Test: " + testData.get(i));
+//            }
+//        }
 
 
 

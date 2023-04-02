@@ -60,9 +60,64 @@ public class Week2 {
     }
 
 
+    /**
+     * If it is possible for P2 to mirror the moves of P1 then P2 will always win.
+     * It doesn't matter if P1 divides first or reduces to 1 (P2 will always win).
+     * The only way that P2 can't win is if there is an odd number of towers.
+     * With an odd number of towers P2 cannot mirror P1 and thus looses.
+     */
     // 4
     public static int towerBreakers(int n, int m) {
-        return 0;
+        if (m == 1) {
+            return 2;
+        }
+        return n % 2 == 0 ? 2 : 1;
+    }
+
+
+    public static int towerBreakers2(int n, int m) {
+        List<Integer> towers = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            towers.add(m);
+        }
+        int player = 1;
+
+        while (!towers.isEmpty() && towers.get(towers.size() - 1) != 1) {
+            int y;
+            if (towers.size() % 2 == 0) {
+                int x = towers.get(towers.size() - 1);
+                y = largestDivisor(x);
+            } else {
+                y = 1;
+            }
+            towers.remove(towers.size() - 1);
+
+            if (y > 1) {
+                int position = Collections.binarySearch(towers, y);
+                if (position >= 0) {
+                    towers.add(position, y);
+                } else {
+                    towers.add(-position - 1, y);
+                }
+            }
+
+            player = nextPlayer(player);
+        }
+
+        return nextPlayer(player);
+    }
+
+    private static int largestDivisor(int x) {
+        for (int i = x / 2; i >= 2; i--) {
+            if (x % i == 0) {
+                return i;
+            }
+        }
+        return 1;
+    }
+
+    private static int nextPlayer(int lastPlayer) {
+        return lastPlayer == 1 ? 2 : 1;
     }
 }
 
