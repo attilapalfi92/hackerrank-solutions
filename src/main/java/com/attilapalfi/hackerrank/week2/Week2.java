@@ -162,6 +162,36 @@ public class Week2 {
         List<Integer> bestSublist = numbers.subList(bestIndex, bestIndex + k);
         return bestSublist.get(bestSublist.size() - 1) - bestSublist.get(0);
     }
+
+
+    // 12
+    public static String counterGame(long n) {
+        String player = "Louise";
+        long i = 2;
+        List<Long> powersOf2 = new ArrayList<>();
+        while (i > 0) {
+            powersOf2.add(i);
+            i = i * 2;
+        }
+
+        while (n != 1) {
+            int position = Collections.binarySearch(powersOf2, n);
+            if (position >= 0) {
+                n /= 2;
+            } else {
+                position = -position - 2;
+                long twoPower = powersOf2.get(position);
+                n -= twoPower;
+            }
+            player = nextPlayer(player);
+        }
+
+        return nextPlayer(player);
+    }
+
+    private static String nextPlayer(String player) {
+        return player.equals("Louise") ? "Richard" : "Louise";
+    }
 }
 
 
