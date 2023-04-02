@@ -2,11 +2,35 @@ package com.attilapalfi.hackerrank;
 
 import com.attilapalfi.hackerrank.week2.Week2;
 
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        var result = Week2.caesarCipher("www.abc.xy", 87);
+        Integer[] testData = new Integer[]{4504,
+                1520,
+                5857,
+                4094,
+                4157,
+                3902,
+                822,
+                6643,
+                2422,
+                7288,
+                8245,
+                9948,
+                2822,
+                1784,
+                7802,
+                3142,
+                9739,
+                5629,
+                5413,
+                7232};
+
+//        var result = Week2.maxMin2(5, Arrays.asList(testData));
+        var result = Week2.maxMin2(3, List.of(10, 100, 300, 200, 1000, 20, 30));
         System.out.println(result);
 
 //        var result = Contracts.contacts(List.of(

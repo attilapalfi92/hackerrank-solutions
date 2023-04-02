@@ -144,6 +144,24 @@ public class Week2 {
         }
         return new String(chars);
     }
+
+
+    // 6
+    public static int maxMin(int k, List<Integer> arr) {
+        List<Integer> numbers = new ArrayList<>(arr);
+        Collections.sort(numbers);
+        int bestIndex = 0;
+        int bestDiff = Integer.MAX_VALUE;
+        for (int i = 0; i + k <= numbers.size(); i++) {
+            int diff = numbers.get(i + k - 1) - numbers.get(i);
+            if (diff < bestDiff) {
+                bestDiff = diff;
+                bestIndex = i;
+            }
+        }
+        List<Integer> bestSublist = numbers.subList(bestIndex, bestIndex + k);
+        return bestSublist.get(bestSublist.size() - 1) - bestSublist.get(0);
+    }
 }
 
 
