@@ -1,6 +1,6 @@
 package com.attilapalfi.hackerrank;
 
-import com.attilapalfi.hackerrank.datastructures.queues.CastleOnTheGrid;
+import com.attilapalfi.hackerrank.datastructures.tries.Contracts;
 
 import java.util.*;
 
@@ -8,11 +8,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String[] rows = CastleOnTheGrid.TEST_DATA.split("\n");
-        List<String> rowList = Arrays.asList(rows);
-        int result = CastleOnTheGrid.minimumMoves(rowList, 34, 28, 16, 8);
+
+        var result = Contracts.contacts(List.of(
+                List.of("add", "hack"),
+                List.of("add", "hackerrank"),
+                List.of("find", "hac"),
+                List.of("find", "hak")
+        ));
+
         System.out.println(result);
 
+//        Contracts.contacts(List.of(
+//                List.of("add", "ed"),
+//                List.of("add", "eda"),
+//                List.of("add", "edi"),
+//                List.of("add", "edik"),
+//                List.of("find", "edi")
+//        ));
+
+//        String[] rows = CastleOnTheGrid.TEST_DATA.split("\n");
+//        List<String> rowList = Arrays.asList(rows);
+//        int result = CastleOnTheGrid.minimumMoves(rowList, 34, 28, 16, 8);
+//        System.out.println(result);
 
 
         // * ...
@@ -30,7 +47,6 @@ public class Main {
 //                System.out.println("Failed at " + i + ". Test: " + testData.get(i));
 //            }
 //        }
-
 
 
 //        var result = Week1.twoArrays(5, List.of(2, 1, 3), List.of(7, 8, 9));
