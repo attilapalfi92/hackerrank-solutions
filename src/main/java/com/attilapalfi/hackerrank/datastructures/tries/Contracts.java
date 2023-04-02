@@ -21,7 +21,7 @@ public class Contracts {
             if (query.get(0).equalsIgnoreCase("add")) {
                 storage.add(query.get(1));
             } else {
-                int matches = storage.find(query.get(1));
+                int matches = storage.find2(query.get(1));
                 results.add(matches);
             }
         });
@@ -31,6 +31,35 @@ public class Contracts {
 
     public static class Storage {
         Map<Character, Node> root = new HashMap<>();
+
+        int find2(String name) {
+            char[] chars = name.toCharArray();
+            int results = 0;
+            char c = chars[0];
+            Node currentNode = root.getOrDefault(c, null);
+
+            if (chars.length == 1) {
+                if (currentNode != null) {
+                    return currentNode.totalNameCount;
+                } else {
+                    return 0;
+                }
+            }
+
+            for (int i = 1; i < chars.length && currentNode != null; i++) {
+                c = chars[i];
+                if (i < chars.length - 1) {
+                    currentNode = currentNode.nextNodes.getOrDefault(c, null);
+                } else {
+                    currentNode = currentNode.nextNodes.getOrDefault(c, null);
+                    if (currentNode != null) {
+                        results = currentNode.totalNameCount;
+                    }
+                }
+            }
+
+            return results;
+        }
 
         int find(String name) {
             char[] chars = name.toCharArray();
@@ -84,10 +113,12 @@ public class Contracts {
                 Node node;
                 if (currentNodes.containsKey(c)) {
                     node = currentNodes.get(c);
+                    node.totalNameCount++;
                 } else {
                     node = new Node(c);
                     currentNodes.put(c, node);
                 }
+
                 currentNodes = node.nextNodes;
                 if (i == chars.length - 1) {
                     node.fullName = true;
@@ -96,9 +127,10 @@ public class Contracts {
         }
     }
 
-    public static class Node {
+    static class Node {
         char character;
         boolean fullName = false;
+        int totalNameCount = 1;
 
         Map<Character, Node> nextNodes = new HashMap<>();
 
