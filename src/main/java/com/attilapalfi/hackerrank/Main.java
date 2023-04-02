@@ -1,22 +1,22 @@
 package com.attilapalfi.hackerrank;
 
-import com.attilapalfi.hackerrank.datastructures.tries.Contracts;
-
-import java.util.*;
+import com.attilapalfi.hackerrank.week2.Week2;
 
 public class Main {
 
     public static void main(String[] args) {
 
-
-        var result = Contracts.contacts(List.of(
-                List.of("add", "hack"),
-                List.of("add", "hackerrank"),
-                List.of("find", "hac"),
-                List.of("find", "hak")
-        ));
-
+        var result = Week2.caesarCipher("www.abc.xy", 87);
         System.out.println(result);
+
+//        var result = Contracts.contacts(List.of(
+//                List.of("add", "hack"),
+//                List.of("add", "hackerrank"),
+//                List.of("find", "hac"),
+//                List.of("find", "hak")
+//        ));
+//
+//        System.out.println(result);
 
 //        Contracts.contacts(List.of(
 //                List.of("add", "ed"),

@@ -119,6 +119,31 @@ public class Week2 {
     private static int nextPlayer(int lastPlayer) {
         return lastPlayer == 1 ? 2 : 1;
     }
+
+
+    // 5
+    public static String caesarCipher(String s, int k) {
+        int diff = 'z' - 'a' + 1;
+        k = k % diff;
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
+            if (c >= 'a' && c <= 'z') {
+                int added = c + k;
+                if (added > 'z') {
+                    added = added - ('z' - 'a' + 1);
+                }
+                chars[i] = (char) added;
+            } else if (c >= 'A' && c <= 'Z') {
+                int added = c + k;
+                if (added > 'Z') {
+                    added = added - ('Z' - 'A' + 1);
+                }
+                chars[i] = (char) added;
+            }
+        }
+        return new String(chars);
+    }
 }
 
 
