@@ -1,12 +1,24 @@
 package com.attilapalfi.hackerrank;
 
-import com.attilapalfi.hackerrank.week2.Week2;
+import com.attilapalfi.hackerrank.week3.Week3;
+
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        var result = Week2.counterGame(1463674015);
+
+        List<String> grid = List.of(
+                ".......",
+                "...O...",
+                "....O..",
+                "...O...",
+                ".......",
+                "OO.....",
+                "OO....."
+        );
+        var result = Week3.bomberMan(3, grid);
         System.out.println(result);
 
 
